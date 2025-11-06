@@ -1,0 +1,5 @@
+# ninja log v7
+1	9	1762441096158061266	/Users/c2/Documents/PersonalProjects/cpp/roadmap_sh/expense_tracker/cmake-build-debug/CMakeFiles/cmake.verify_globs	ddb8fc1486fdc336
+9	145	1762441096166152825	CMakeFiles/expense_tracker.dir/src/LinkedList.cpp.o	c15d0c099095171e
+9	307	1762441096166338450	CMakeFiles/expense_tracker.dir/src/main.cpp.o	cef2317faa0ee55d
+307	344	1762441096464191599	expense_tracker	a5a702483f924d40

@@ -1,0 +1,14 @@
+[
+{
+  "directory": "/Users/c2/Documents/PersonalProjects/cpp/roadmap_sh/expense_tracker/cmake-build-debug",
+  "command": "/usr/bin/c++ -I/Users/c2/Documents/PersonalProjects/cpp/roadmap_sh/expense_tracker/src/include -isystem /opt/homebrew/include -g -std=gnu++2b -arch arm64 -o CMakeFiles/expense_tracker.dir/src/LinkedList.cpp.o -c /Users/c2/Documents/PersonalProjects/cpp/roadmap_sh/expense_tracker/src/LinkedList.cpp",
+  "file": "/Users/c2/Documents/PersonalProjects/cpp/roadmap_sh/expense_tracker/src/LinkedList.cpp",
+  "output": "/Users/c2/Documents/PersonalProjects/cpp/roadmap_sh/expense_tracker/cmake-build-debug/CMakeFiles/expense_tracker.dir/src/LinkedList.cpp.o"
+},
+{
+  "directory": "/Users/c2/Documents/PersonalProjects/cpp/roadmap_sh/expense_tracker/cmake-build-debug",
+  "command": "/usr/bin/c++ -I/Users/c2/Documents/PersonalProjects/cpp/roadmap_sh/expense_tracker/src/include -isystem /opt/homebrew/include -g -std=gnu++2b -arch arm64 -o CMakeFiles/expense_tracker.dir/src/main.cpp.o -c /Users/c2/Documents/PersonalProjects/cpp/roadmap_sh/expense_tracker/src/main.cpp",
+  "file": "/Users/c2/Documents/PersonalProjects/cpp/roadmap_sh/expense_tracker/src/main.cpp",
+  "output": "/Users/c2/Documents/PersonalProjects/cpp/roadmap_sh/expense_tracker/cmake-build-debug/CMakeFiles/expense_tracker.dir/src/main.cpp.o"
+}
+]
