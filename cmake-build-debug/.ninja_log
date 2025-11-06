@@ -1,9 +1,8 @@
 # ninja log v7
-1	10	1762454633034083098	/Users/c2/Documents/PersonalProjects/cpp/roadmap_sh/expense_tracker/cmake-build-debug/CMakeFiles/cmake.verify_globs	ddb8fc1486fdc336
-9	145	1762441096166152825	CMakeFiles/expense_tracker.dir/src/LinkedList.cpp.o	c15d0c099095171e
-12	347	1762454633045191658	CMakeFiles/expense_tracker.dir/src/main.cpp.o	cef2317faa0ee55d
-347	385	1762454633380331942	expense_tracker	a5a702483f924d40
-2	11	1762455641220720846	/Users/c2/Documents/PersonalProjects/cpp/roadmap_sh/expense_tracker/cmake-build-debug/CMakeFiles/cmake.verify_globs	ddb8fc1486fdc336
-14	500	1762455641232508764	CMakeFiles/expense_tracker.dir/src/main.cpp.o	cef2317faa0ee55d
-13	500	1762455641232254737	CMakeFiles/expense_tracker.dir/src/LinkedList.cpp.o	c15d0c099095171e
-501	599	1762455641719377384	expense_tracker	a5a702483f924d40
+1	12	1762456410025825768	/Users/c2/Documents/PersonalProjects/cpp/roadmap_sh/expense_tracker/cmake-build-debug/CMakeFiles/cmake.verify_globs	ddb8fc1486fdc336
+14	507	1762456410039094375	CMakeFiles/expense_tracker.dir/src/LinkedList.cpp.o	c15d0c099095171e
+15	506	1762456410039410259	CMakeFiles/expense_tracker.dir/src/main.cpp.o	cef2317faa0ee55d
+507	605	1762456410531414560	expense_tracker	a5a702483f924d40
+1	11	1762456421726701652	/Users/c2/Documents/PersonalProjects/cpp/roadmap_sh/expense_tracker/cmake-build-debug/CMakeFiles/cmake.verify_globs	ddb8fc1486fdc336
+13	281	1762456421739006104	CMakeFiles/expense_tracker.dir/src/main.cpp.o	cef2317faa0ee55d
+281	318	1762456422007385780	expense_tracker	a5a702483f924d40

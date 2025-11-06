@@ -1,3 +1,4 @@
+#include <ctime>
 #include <iostream>
 
 #include "LinkedList.hpp"
@@ -7,11 +8,10 @@
 bool isInputValid(int argc, char *argv[]);
 
 int main(int argc, char *argv[]) {
-  std::cout << argc << std::endl;
-
   if (!isInputValid(argc, argv)) {
     return 1;
   }
+
   LinkedList list;
 
   return 0;

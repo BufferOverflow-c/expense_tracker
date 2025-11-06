@@ -15,6 +15,10 @@ struct Node {
       : pNext(nullptr), pPrev(nullptr), m_id(0), m_description(rDescription),
         m_amount(amount) {
     time_t now = time(nullptr);
-    m_date = std::ctime(&now);
+    tm *local = localtime(&now);
+
+    m_date = std::to_string(local->tm_year + 1900) + "-" +
+             std::to_string(local->tm_mon + 1) + "-" +
+             std::to_string(local->tm_mday);
   }
 };
