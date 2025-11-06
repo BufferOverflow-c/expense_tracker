@@ -1,12 +1,69 @@
+#include <iostream>
+
 #include "LinkedList.hpp"
 
 LinkedList::LinkedList() : pHead(nullptr), pTail(nullptr) {}
-LinkedList::~LinkedList() {}
+
+LinkedList::~LinkedList() {
+  Node *current = pHead;
+  while (current) {
+    Node *next = current->pNext;
+    delete current;
+    current = next;
+  }
+}
 
 void LinkedList::addExpense(const std::string &rDescription, const int amount) {
+  Node *node = new Node(rDescription, amount);
+  if (!pHead) {
+    pHead = node;
+    pTail = node;
+  } else {
+    pTail->pNext = node;
+    pTail = node;
+  }
 }
-void LinkedList::removeExpense(const int id) {}
 
-void LinkedList::printAll() const {}
-void LinkedList::printFullSummary() const {}
+void LinkedList::removeExpense(const int id) {
+  Node *current = pHead;
+  Node *previous = pHead;
+  while (current) {
+    if (current->m_id == id) {
+      if (current == pHead) {
+        pHead = current->pNext;
+        delete current;
+        current = pHead;
+      } else {
+        previous->pNext = current->pNext;
+        delete current;
+        current = previous->pNext;
+      }
+    }
+    previous = current;
+    current = current->pNext;
+  }
+}
+
+void LinkedList::printAll() const {
+  std::cout << "ID    Date    Description    Amount\n";
+  Node *current = pHead;
+  while (current) {
+    std::cout << current->m_id << "    " << current->m_date << "    "
+              << current->m_description << "    " << current->m_amount
+              << std::endl;
+    current = current->pNext;
+  }
+}
+
+void LinkedList::printFullSummary() const {
+  int total{};
+
+  Node *current = pHead;
+  while (current) {
+    total += current->m_amount;
+    current = current->pNext;
+  }
+  std::cout << "Total expenses: " << total << std::endl;
+}
+
 void LinkedList::printSpecificMonthSummary(const int month) {}

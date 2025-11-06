@@ -4,7 +4,20 @@
 
 // TODO: input checks for arguments
 
+bool isInputValid(int argc, char *argv[]);
+
 int main(int argc, char *argv[]) {
+  std::cout << argc << std::endl;
+
+  if (!isInputValid(argc, argv)) {
+    return 1;
+  }
+  LinkedList list;
+
+  return 0;
+}
+
+bool isInputValid(int argc, char *argv[]) {
   if (argc < 2) {
     std::cout << "Usage: ./expense_tracker add --description <description> "
                  "--amount <amount>"
@@ -14,10 +27,11 @@ int main(int argc, char *argv[]) {
     std::cout << "Usage: ./expense_tracker summary" << std::endl;
     std::cout << "Usage: ./expense_tracker summary --month <month>"
               << std::endl;
-    return 1;
+    return false;
   }
 
-  LinkedList list;
-
-  return 0;
+  if (std::string(argv[1]) == "add" && argc == 6) {
+    return true;
+  }
+  return true;
 }
