@@ -14,7 +14,6 @@ public:
   void printFullSummary() const;
   void printSpecificMonthSummary(const int month);
 
-private:
   Node *pHead;
   Node *pTail;
 };

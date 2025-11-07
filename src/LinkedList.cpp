@@ -23,6 +23,7 @@ void LinkedList::addExpense(const std::string &rDescription, const int amount) {
     pTail = node;
   } else {
     pTail->pNext = node;
+    node->m_id = pTail->m_id + 1;
     pTail = node;
   }
 }

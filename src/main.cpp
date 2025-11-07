@@ -1,26 +1,38 @@
+#include <filesystem>
+#include <fstream>
 #include <iostream>
 #include <string>
 
 #include "LinkedList.hpp"
+#include "Utils.hpp"
 
 // TODO: input checks for arguments
-
+void ensureFileExists(const std::string &rFile_name);
 bool isInputValid(int argc, char *argv[]);
 
 int main(int argc, char *argv[]) {
   if (!isInputValid(argc, argv)) {
     return 1;
   }
+  ensureFileExists("expenses.json");
 
   LinkedList list;
+  Utils::read("expenses.json", list);
 
-  list.addExpense("expense_1", 40);
-  list.addExpense("expense_2", 50);
-  list.addExpense("expense_3", 60);
-
-  list.printSpecificMonthSummary(11);
-
+  Utils::write("expenses.json", list);
   return 0;
+}
+
+void ensureFileExists(const std::string &rFile_name) {
+  if (!std::filesystem::exists(rFile_name)) {
+    std::ofstream file(rFile_name);
+    if (!file) {
+      std::cerr << "Error creating file: " << rFile_name << std::endl;
+      file << "[]";
+      return;
+    }
+    std::cout << "File created successfully: " << rFile_name << std::endl;
+  }
 }
 
 bool isInputValid(int argc, char *argv[]) {
