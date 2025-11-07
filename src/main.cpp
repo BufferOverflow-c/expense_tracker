@@ -8,18 +8,19 @@
 
 // TODO: input checks for arguments
 void ensureFileExists(const std::string &rFile_name);
-bool isInputValid(int argc, char *argv[]);
+bool isInputValid(int argc, char *argv[], LinkedList &list);
 
 int main(int argc, char *argv[]) {
-  if (!isInputValid(argc, argv)) {
-    return 1;
-  }
-  ensureFileExists("expenses.json");
+  const std::string FILE_NAME = "expenses.json";
+  ensureFileExists(FILE_NAME);
 
   LinkedList list;
-  Utils::read("expenses.json", list);
+  Utils::read(FILE_NAME, list);
 
-  Utils::write("expenses.json", list);
+  if (!isInputValid(argc, argv, list)) {
+    return 1;
+  }
+
   return 0;
 }
 
@@ -35,7 +36,7 @@ void ensureFileExists(const std::string &rFile_name) {
   }
 }
 
-bool isInputValid(int argc, char *argv[]) {
+bool isInputValid(int argc, char *argv[], LinkedList &list) {
   if (argc < 2) {
     std::cout << "Usage: ./expense_tracker add --description <description> "
                  "--amount <amount>"
@@ -48,7 +49,44 @@ bool isInputValid(int argc, char *argv[]) {
     return false;
   }
 
-  if (std::string(argv[1]) == "add" && argc == 6) {
+  if (argc == 6 && std::string(argv[1]) == "add") {
+    std::string description = argv[3];
+    double amount = std::stod(argv[5]);
+    list.addExpense(description, amount);
+    Utils::write("expenses.json", list);
+    return true;
+  }
+
+  if (argc == 4 && std::string(argv[1]) == "remove") {
+    const int id = std::stoi(argv[3]);
+    list.removeExpense(id);
+    Utils::write("expenses.json", list);
+    return true;
+  }
+
+  if (argc == 2 && std::string(argv[1]) == "list") {
+    list.printAll();
+    Utils::write("expenses.json", list);
+    return true;
+  }
+
+  if (argc == 2 && std::string(argv[1]) == "summary") {
+    list.printFullSummary();
+    Utils::write("expenses.json", list);
+    return true;
+  }
+
+  if (argc == 4 && std::string(argv[1]) == "summary" &&
+      std::string(argv[2]) == "--month") {
+    int month;
+    try {
+      month = std::stoi(argv[3]);
+    } catch (const std::invalid_argument &e) {
+      std::cerr << "Invalid month: " << argv[3] << std::endl;
+      return false;
+    }
+    list.printSpecificMonthSummary(month);
+    Utils::write("expenses.json", list);
     return true;
   }
   return true;
