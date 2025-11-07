@@ -1,5 +1,5 @@
-#include <ctime>
 #include <iostream>
+#include <string>
 
 #include "LinkedList.hpp"
 
@@ -13,6 +13,12 @@ int main(int argc, char *argv[]) {
   }
 
   LinkedList list;
+
+  list.addExpense("expense_1", 40);
+  list.addExpense("expense_2", 50);
+  list.addExpense("expense_3", 60);
+
+  list.printSpecificMonthSummary(11);
 
   return 0;
 }

@@ -1,4 +1,7 @@
+
 #include <iostream>
+#include <iterator>
+#include <ranges>
 
 #include "LinkedList.hpp"
 
@@ -66,4 +69,28 @@ void LinkedList::printFullSummary() const {
   std::cout << "Total expenses: " << total << std::endl;
 }
 
-void LinkedList::printSpecificMonthSummary(const int month) {}
+void LinkedList::printSpecificMonthSummary(const int month) {
+  int total{};
+  Node *current = pHead;
+  while (current) {
+    auto split = current->m_date | std::ranges::views::split('-');
+    auto it = split.begin();
+    std::advance(it, 1);
+    auto &&subrange = *it;
+
+    std::string m_month(std::ranges::begin(subrange),
+                        std::ranges::end(subrange));
+
+    try {
+      if (std::stoi(m_month) == month) {
+        total += current->m_amount;
+      }
+    } catch (const std::invalid_argument &e) {
+      std::cerr << "Invalid argument: " << e.what() << std::endl;
+    }
+
+    current = current->pNext;
+  }
+  std::cout << "Total expenses for month " << month << ": " << total
+            << std::endl;
+}
